@@ -3,6 +3,7 @@ module Tabulous
     class << self
 
       attr_reader :renderer,
+                  :navbar_selector,
                   :active_tab_clickable,
                   :when_action_has_no_tab,
                   :render_subtabs_when_empty,
@@ -43,6 +44,13 @@ module Tabulous
           raise ImproperValueError, "renderer must be a string or a symbol"
         end
         @renderer = val
+      end
+
+      def navbar_selector=(val)
+        unless val.is_a?(String)
+          raise ImproperValueError, "selector must be a string"
+        end
+        @navbar_selector = val
       end
 
       def when_action_has_no_tab=(val)
