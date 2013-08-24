@@ -15,6 +15,7 @@ module Tabulous
                   :inactive_text_color
 
       attr_writer :active_tab_clickable,
+                  :navbar_selector,
                   :render_subtabs_when_empty,
                   :use_css_scaffolding,
                   :background_color,
@@ -52,6 +53,10 @@ module Tabulous
         @when_action_has_no_tab = val
       end
 
+      def navbar_selector=(val)
+        raise ImproperValueError, "selector must be a string" unless val.is_a?(String)
+        @navbar_selector = val
+      end
     end
   end
 end

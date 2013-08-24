@@ -4,8 +4,9 @@ module Tabulous
   class BootstrapRenderer < CombinedRenderer
 
     def tabs_html
+      navbar_selector = Config.navbar_selector || 'nav-tabs'
       <<-HTML.strip_heredoc
-        <ul class="nav nav-tabs">
+        <ul class="nav #{navbar_selector}">
           #{ tab_list_html }
         </ul>
       HTML
